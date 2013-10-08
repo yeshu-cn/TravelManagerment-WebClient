@@ -14,7 +14,7 @@ License
 
 Building
 ---------------
-项目使用ThinkPHP-sae 3.1.3版框架
+项目使用ThinkPHP-sae 3.1.3版框架<br />
 数据库使用mysql，导入结构文件为：travelmanager.sql
 
 Acknowledgements

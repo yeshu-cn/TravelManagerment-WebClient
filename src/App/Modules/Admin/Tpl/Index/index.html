@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>网上办公系统</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/fullcalendar.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.grey.css" class="skin-color" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+	<div id="header">
+		<h1>
+			<a href="#">yeshu Admin</a>
+		</h1>
+	</div>
+
+
+
+	<div id="user-nav" class="navbar navbar-inverse">
+		<ul class="nav btn-group">
+			<li class="btn btn-inverse">
+				<a title="" target="iframe" href="{:U(GROUP_NAME . '/PersonalCenter/resetPwd')}""> <i class="icon icon-user"></i>
+					<span class="text">个人中心</span>
+				</a>
+			</li>
+			
+			<li class="btn btn-inverse">
+				<a title="" href="{:U(GROUP_NAME . '/Login/logout')}">
+					<i class="icon icon-share-alt"></i>
+					<span class="text">注销</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<div id="sidebar">
+		<a href="#" class="visible-phone">
+			<i class="icon icon-home"></i>
+			后台首页
+		</a>
+		<ul>
+			<li class="submenu open active" name="item" onclick="onItemSelected(0)">
+				<a href="#">
+					<i class="icon icon-home"></i>
+					<span >首页</span>
+				</a>
+				<ul>
+					<li>
+						<a onclick="changeCss(0)" target="iframe" href="{:U(GROUP_NAME . '/Blackboard/index')}">公告板</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="submenu" onclick="onItemSelected(1)" name="item">
+				<a href="#">
+					<i class="icon icon-th-list"></i>
+					<span >管理员操作</span>
+				</a>
+				<ul >
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/Rbac/index')}">用户列表</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/Rbac/role')}">角色列表</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/Rbac/node')}">节点列表</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/Rbac/addUser')}">添加用户</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/Rbac/addRole')}">添加角色</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/Rbac/addNode')}">添加节点</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="submenu" onclick="onItemSelected(2)" name="item">
+				<a href="#">
+					<i class="icon icon-th-list"></i>
+					<span>总经理操作</span>
+				</a>
+				<ul >
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/checkGroupInfo')}">团队信息审核</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/manageGroups')}">团队信息管理</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/userList')}">用户列表</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/addUser')}">添加用户</a>
+					</li>
+					<!--
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/addJiDiao')}">添加计调</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/addOffice')}">添加办事处</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/checkAddGroupInfo')}">团队信息录入审核</a>
+					</li>
+					<li>
+						<a  target="iframe" href="{:U(GROUP_NAME . '/GeneralManager/checkModifyGroupInfo')}">团队信息修改审核</a>
+					</li>
+					-->
+				</ul>
+			</li>
+
+			<li class="submenu" onclick="onItemSelected(3)" name="item" >
+				<a href="#">
+					<i class="icon icon-th-list"></i>
+					<span>计调操纵</span>
+				</a>
+				<ul >
+					<li>
+						<a   target="iframe" href="{:U(GROUP_NAME . '/JiDiao/addGroup')}">团队信息录入</a>
+					</li>
+					<li>
+						<a   target="iframe" href="{:U(GROUP_NAME . '/JiDiao/manageGroup')}">我的团队信息</a>
+					</li>
+					<!--
+					<li>
+						<a   target="iframe" href="{:U(GROUP_NAME . '/JiDiao/queryUnCheckGroup')}">待审核团队信息</a>
+					</li>
+					-->
+					<li>
+						<a   target="iframe" href="{:U(GROUP_NAME . '/JiDiao/queryGroup')}">所有团队信息</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="submenu" name="item" onclick="onItemSelected(4)">
+				<a href="#">
+					<i class="icon icon-th-list"></i>
+					<span>导游部</span>
+				</a>
+				<ul>
+					<li>
+						<a target="iframe" href="{:U(GROUP_NAME . '/GuideDepartment/addGuide')}">导游录入</a>
+					</li>
+					<li>
+						<a target="iframe" href="{:U(GROUP_NAME . '/GuideDepartment/manageGuide')}">导游管理</a>
+					</li>
+					<li>
+						<a target="iframe" href="{:U(GROUP_NAME . '/GuideDepartment/dispatchGuide')}">导游部排团</a>
+					</li>
+				</ul>
+			</li>
+
+			<li class="submenu" name="item" onclick="onItemSelected(5)">
+				<a href="#">
+					<i class="icon icon-th-list"></i>
+					<span>个人中心</span>
+				</a>
+				<ul>
+					<li>
+						<a target="iframe" href="{:U(GROUP_NAME . '/PersonalCenter/selfInfo')}">个人资料</a>
+					</li>
+					<li>
+						<a target="iframe" href="{:U(GROUP_NAME . '/PersonalCenter/resetPwd')}">密码修改</a>
+					</li>
+				</ul>
+			</li>
+
+			
+		</ul>
+
+	</div>
+
+<!--
+	<div id="style-switcher">
+		<i class="icon-arrow-left icon-white"></i>
+		<span>Style:</span>
+		<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+		<a href="#blue" style="background-color: #2D2F57;"></a>
+		<a href="#red" style="background-color: #673232;"></a>
+	</div>
+-->
+
+
+
+	<div id="content">
+		<div id="content-header"></div>
+<!--
+		<div id="breadcrumb">
+			<a href="#" title="Go to Home" class="tip-bottom">
+				<i class="icon-home"></i>
+				主页
+			</a>
+			<a href="#" class="current">仪表盘</a>
+		</div>
+-->
+		<div>
+			<iframe id="iframe" name="iframe"  width="100%" frameBorder=0 scrolling=no onLoad="iFrameHeight()"></iframe>
+		</div>
+
+
+		<div class="row-fluid">
+			<div id="footer" class="span12">
+			2013 &copy; <a href="www.baidu.com">yeshu</a> All rights reserved v1.01
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<script src="__PUBLIC__/js/excanvas.min.js"></script>
+<script src="__PUBLIC__/js/jquery.min.js"></script>
+<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/js/jquery.flot.min.js"></script>
+<script src="__PUBLIC__/js/jquery.flot.resize.min.js"></script>
+<script src="__PUBLIC__/js/jquery.peity.min.js"></script>
+<script src="__PUBLIC__/js/fullcalendar.min.js"></script>
+<script src="__PUBLIC__/js/unicorn.js"></script>
+<script src="__PUBLIC__/js/unicorn.dashboard.js"></script>
+
+<script>
+	function changeSelect(position){
+	  active.src=position;
+	}
+</script>
+
+<script type="text/javascript" language="javascript">   
+function iFrameHeight() {   
+	var ifm= document.getElementById("iframe");   
+  	var subWeb = document.frames ? document.frames["iframe"].document : ifm.contentDocument;   
+  	if(ifm != null && subWeb != null) {
+    	ifm.height = subWeb.body.scrollHeight;
+  	}   
+}
+
+var flag = 0;
+function onItemSelected(position){
+	if(flag == position){
+		return;
+	}
+	x=document.getElementsByName("item");
+	x[flag].className = "submenu";
+	x[position].className = "submenu active open";
+	flag = position;
+	return;
+
+	x=document.getElementsByName("item");
+	for(var i=0; i<x.length; i++){
+		if(position == i){
+			x[i].className = "submenu active open";
+		}else{
+			x[i].className = "submenu";
+		}
+	}
+} 
+
+</script>
+
+
+</body>
+</html>

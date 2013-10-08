@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom">
+			<i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#">管理员操作</a>
+		<a href="#" class="current">添加角色</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<form method="post" class="form-horizontal" action="{:U(GROUP_NAME . '/Rbac/addRoleHandle')}">
+						<div class="widget-title">
+							<span class="icon"> <i class="icon-align-justify"></i>
+							</span>
+							<h5>添加角色</h5>
+						</div>
+						<div class="widget-content nopadding">
+							<div class="control-group">
+								<label class="control-label">角色名称：</label>
+								<div class="controls">
+									<input type="text" name="name"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">角色描述：</label>
+								<div class="controls">
+									<input type="text" name="remark"/>
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label">是否开启：</label>
+								<div class="controls">
+									<input type="radio" name="status" value="1" checked="checked"/>
+									&nbsp;开启&nbsp;
+									<input type="radio" name="status" value="0" />
+									&nbsp;关闭
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">保存添加</button>
+							</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

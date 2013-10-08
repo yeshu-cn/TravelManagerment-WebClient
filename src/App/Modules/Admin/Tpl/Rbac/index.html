@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom">
+			<i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#">管理员操作</a>
+		<a href="#" class="current">用户列表</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"> <i class="icon-th"></i>
+						</span>
+						<h5>角色列表</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>用户名称</th>
+									<th>上一次登录时间</th>
+									<th>上一次登录IP</th>
+									<th>锁定状态</th>
+									<th>用户所属组别</th>
+									<th>操纵</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="user" item="v">
+									<tr>
+										<td>{$v.id}</td>
+										<td>{$v.username}</td>
+										<td>{$v.logintime|date='y-m-d H:i', ###}</td>
+										<td>{$v.loginip}</td>
+										<td>
+											<if condition='$v["lock"]'>锁定</if>
+										</td>
+										<td>
+											<if condition='$v["username"] eq C("RBAC_SUPERADMIN")'>
+											<ul><li>超级管理员</li></ul>
+											<else/>
+												<ul>
+													<foreach name='v.role' item='value'>
+														<li>{$value.name}({$value.remark})</li>
+													</foreach>
+												</ul>
+											</if>
+										</td>
+										<td>
+											<a href="#">锁定</a>
+										</td>
+									</tr>
+								</foreach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+           <script src="__PUBLIC__/js/jquery.min.js"></script>
+            <script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+            <script src="__PUBLIC__/js/bootstrap.min.js"></script>
+            <script src="__PUBLIC__/js/jquery.uniform.js"></script>
+            <script src="__PUBLIC__/js/select2.min.js"></script>
+            <script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+            <script src="__PUBLIC__/js/unicorn.js"></script>
+            <script src="__PUBLIC__/js/unicorn.tables.js"></script>
+
+</body>
+</html>

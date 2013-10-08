@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom">
+			<i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#">管理员操作</a>
+		<a href="#" class="current">节点列表</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				<a href="{:U(GROUP_NAME . '/Rbac/addNode')}"><span class="btn btn-primary">添加应用</span></a>
+				<foreach name="node" item="app">
+					<div class="widget-box collapsible">
+						<div class="widget-title">
+							<a href="#{$app.name}" data-toggle="collapse">
+								<span class="icon"> <i class="icon-arrow-right"></i>
+								</span>
+								<h5>{$app.title}</h5>
+								<h5><a href="#">[修改]</a></h5>
+								<h5><a href="#">[删除]</a></h5>
+								<h5><a href="{:U(GROUP_NAME . '/Rbac/addNode', array('pid' =>$app['id'], 'level' => 2))}">[添加控制器]</a></h5>
+							</a>
+						</div>
+						<div class="collapse in" id="{$app.name}">
+
+							<table class="table table-bordered table-striped">
+								<tbody>
+									<foreach name="app.child" item="action">
+										<tr>
+											<td>
+												<b>{$action.title}</b><br>
+													[<a href="#">修改</a>]<br>
+													[<a href="#">删除</a>]<br>
+													[<a href="{:U(GROUP_NAME . '/Rbac/addNode', array('pid' =>$action['id'], 'level' => 3))}">添加方法</a>]
+											</td>
+
+											<td>
+												<table class="table table-bordered table-striped">
+													<foreach name="action.child" item="method">
+														<tr>
+															<td>
+																<span>{$method.title}</span>
+															</td>
+															<td>
+																[
+																<a href="#">修改</a>
+																]
+																[
+																<a href="{:U(GROUP_NAME . '/Rbac/deleteNode', array('id' => $method['id']))}">删除</a>
+																]
+															</td>
+														</tr>
+													</foreach>
+												</table>
+
+											</td>
+										</tr>
+									</foreach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</foreach>
+			</div>
+		</div>
+	</div>
+
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.uniform.js"></script>
+	<script src="__PUBLIC__/js/select2.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+	<script src="__PUBLIC__/js/unicorn.js"></script>
+	<script src="__PUBLIC__/js/unicorn.tables.js"></script>
+
+</body>
+</html>

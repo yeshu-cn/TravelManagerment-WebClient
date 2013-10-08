@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom">
+			<i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#" class="current">管理员操作</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+			<form method="post" action="{:U(GROUP_NAME . '/Rbac/setAccess')}">
+				<foreach name="node" item="app">
+					<div class="widget-box collapsible">
+						<div class="widget-title">
+							<a href="#{$app.name}" data-toggle="collapse">
+								<span class="icon"> <i class="icon-arrow-right"></i>
+								</span>
+								<h5>{$app.title}</h5>
+							</a><input type="checkbox" name="access[]" value='{$app.id}_1' level='1' <if condition='$app["access"]'> checked='checked'</if>/>
+						</div>
+						<div class="collapse in" id="{$app.name}">
+
+							<table class="table table-bordered table-striped">
+								<tbody>
+									<foreach name="app.child" item="action">
+										<tr>
+											<td>
+												<b>{$action.title}</b>
+												<input type="checkbox" name="access[]" value="{$action.id}_2" level='2' <if condition='$action["access"]'> checked='checked'</if>/>
+											</td>
+
+											<td>
+												<table class="table table-bordered table-striped">
+													<foreach name="action.child" item="method">
+														<tr>
+															<td>
+																<span>{$method.title}</span>
+																<input type="checkbox" name="access[]" value="{$method.id}_3" level='3' <if condition='$method["access"]'> checked='checked'</if>/>
+															</td>
+														</tr>
+													</foreach>
+												</table>
+
+											</td>
+										</tr>
+									</foreach>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</foreach>
+				<input type="hidden" name="rid", value="{$rid}"/>
+				<button class="btn btn-primary btn-large">保存修改</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.uniform.js"></script>
+	<script src="__PUBLIC__/js/select2.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+	<script src="__PUBLIC__/js/unicorn.js"></script>
+	<script src="__PUBLIC__/js/unicorn.tables.js"></script>
+
+	<script type="text/javascript">
+		$(function(){
+			$('input[level=1]').click(function(){
+				var inputs = $(this).parents('.widget-title').find('input');
+				$(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+			});
+
+			$('input[level=2]').click(function(){
+				var inputs = $(this).parents('td').find('input');
+				$(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+			});
+		});
+	</script>
+
+</body>
+</html>

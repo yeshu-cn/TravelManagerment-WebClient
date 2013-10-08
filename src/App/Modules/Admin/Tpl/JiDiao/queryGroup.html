@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom">
+			<i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#">计调操作</a>
+		<a href="#" class="current">团队信息查询</a>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"> <i class="icon-th"></i>
+						</span>
+						<h5>团队信息列表</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>团队类型</th>
+									<th>行程标题</th>
+									<th>提交人</th>
+									<th>团队人数</th>
+									<th>接团日期</th>
+									<th>送团日期</th>
+									<th>导游姓名</th>
+									<th>购物店</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="groups" item="item">
+									<tr>
+										<td>{$item.id}</td>
+										<td>{$item.type}</td>
+										<td>{$item.routetitle}</td>
+										<td>{$item.jidiao}</td>
+										<td>{$item.members}</td>
+										<td>{$item.recvdate}</td>
+										<td>{$item.senddate}</td>
+										<td>{$item.guides}</td>
+										<td>{$item.shop}</td>
+									</tr>
+								</foreach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.uniform.js"></script>
+	<script src="__PUBLIC__/js/select2.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+	<script src="__PUBLIC__/js/unicorn.js"></script>
+	<script src="__PUBLIC__/js/unicorn.tables.js"></script>
+
+</body>
+</html>

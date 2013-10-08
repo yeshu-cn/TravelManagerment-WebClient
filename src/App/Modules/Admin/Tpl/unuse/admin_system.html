@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Unicorn Admin</title>
+		<meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="css/fullcalendar.css" />	
+		<link rel="stylesheet" href="css/unicorn.main.css" />
+		<link rel="stylesheet" href="css/unicorn.grey.css" class="skin-color" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+	<body>
+		
+		
+		<div id="header">
+			<h1><a href="./dashboard.html">Unicorn Admin</a></h1>		
+		</div>
+		
+		<div id="search">
+			<input type="text" placeholder="搜索..." /><button type="submit" class="tip-right" title="Search"><i class="icon-search icon-white"></i></button>
+		</div>
+		<div id="user-nav" class="navbar navbar-inverse">
+            <ul class="nav btn-group">
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-user"></i> <span class="text">个人档案</span></a></li>
+                <li class="btn btn-inverse dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">消息</span> <span class="label label-important">5</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a class="sAdd" title="" href="#">新消息</a></li>
+                        <li><a class="sInbox" title="" href="#">收件箱</a></li>
+                        <li><a class="sOutbox" title="" href="#">发件箱</a></li>
+                        <li><a class="sTrash" title="" href="#">回收站</a></li>
+                    </ul>
+                </li>
+                <li class="btn btn-inverse"><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">设置</span></a></li>
+                <li class="btn btn-inverse"><a title="" href="login.html"><i class="icon icon-share-alt"></i> <span class="text">注销</span></a></li>
+            </ul>
+        </div>
+            
+		<div id="sidebar">
+			<a href="#" class="visible-phone"><i class="icon icon-home"></i> 仪表盘</a>
+			<ul>
+				<li><a href="index.html"><i class="icon icon-home"></i> <span>仪表盘</span></a></li>
+				
+				<li class="submenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>系统设置</span></a>
+					<ul>
+						<li><a href="admin_system_usermanager.html">用户管理</a></li>
+						<li><a href="admin_system_adduser.html">新增用户</a></li>
+						<li><a href="admin_system_setpermission.html">权限设置</a></li>
+					</ul>
+				</li>
+
+				<li class="sumenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>计调操作</span></a>
+					<ul>
+						<li><a href="admin_jidiao_add.html">信息录入</a></li>
+						<li><a href="admin_jidiao_manager.html">管理</a></li>
+						<li><a href="admin_jidiao_show.html">信息查询</a></li>
+						<li><a href="admin_jidiao_audit.html">信息修改审核</a></li>
+					</ul>
+				</li>
+
+				<li class="sumenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>管理员操作</span></a>
+					<ul>
+						<li><a href="admin_admin_add.html">信息录入</a></li>
+						<li><a href="admin_admin_manager.html">管理</a></li>
+						<li><a href="admin_admin_show.html">信息查询</a></li>
+						<li><a href="admin_admin_audit.html">信息修改审核</a></li>
+					</ul>
+				</li>
+
+				<li class="sumenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>导游部</span></a>
+					<ul>
+						<li><a href="admin_guides_add.html">导游录入</a></li>
+						<li><a href="admin_guides_manager.html">管理</a></li>
+						<li><a href="admin_guides_dispatch.html">导游部排团</a></li>
+					</ul>
+				</li>
+
+				<li class="sumenu">
+					<a href="#"><i class="icon icon-th-list"></i> <span>个人信息</span></a>
+					<ul>
+						<li><a href="admin_self.html">个人信息</a></li>
+					</ul>
+				</li>
+			</ul>
+		
+		</div>
+		
+		<div id="style-switcher">
+			<i class="icon-arrow-left icon-white"></i>
+			<span>Style:</span>
+			<a href="#grey" style="background-color: #555555;border-color: #aaaaaa;"></a>
+			<a href="#blue" style="background-color: #2D2F57;"></a>
+			<a href="#red" style="background-color: #673232;"></a>
+		</div>
+		
+		<div id="content">
+			<div id="content-header">
+				<h1> 仪表盘</h1>
+			</div>
+			<div id="breadcrumb">
+				<a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> 主页</a>
+				<a href="#" class="current">仪表盘</a>
+			</div>
+
+
+
+
+				<div class="row-fluid">
+					<div id="footer" class="span12">
+						2012 &copy; Unicorn Admin. Brought to you by <a href="https://wrapbootstrap.com/user/diablo9983">diablo9983</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+
+            <script src="js/excanvas.min.js"></script>
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery.ui.custom.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.flot.min.js"></script>
+            <script src="js/jquery.flot.resize.min.js"></script>
+            <script src="js/jquery.peity.min.js"></script>
+            <script src="js/fullcalendar.min.js"></script>
+            <script src="js/unicorn.js"></script>
+            <script src="js/unicorn.dashboard.js"></script>
+	</body>
+</html>

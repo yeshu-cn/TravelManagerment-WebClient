@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"> <i class="icon-th"></i>
+						</span>
+						<h5>团队信息列表</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered data-table">
+							<thead>
+								<tr>
+									<th>编号</th>
+									<th>导游姓名</th>
+									<th>导游电话</th>
+									<th>操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<foreach name="guides" item="item">
+									<tr>
+										<td>{$item.id}</td>
+										<td>{$item.name}</td>
+										<td>{$item.phone}</td>
+										<td>
+											<a href="">[修改]</a>
+											<a href="">[删除]</a>
+										</td>
+									</tr>
+								</foreach>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.uniform.js"></script>
+	<script src="__PUBLIC__/js/select2.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+	<script src="__PUBLIC__/js/unicorn.js"></script>
+	<script src="__PUBLIC__/js/unicorn.tables.js"></script>
+
+</body>
+</html>

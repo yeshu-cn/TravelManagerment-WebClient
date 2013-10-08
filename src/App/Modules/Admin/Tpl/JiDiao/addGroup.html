@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom"> <i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#">计调操作</a>
+		<a href="#" class="current">团队信息录入</a>
+	</div>
+	<form method="post" action="{:U(GROUP_NAME . '/JiDiao/addGroupHandle')}">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span12">
+
+					<div class="widget-box">
+						<div class="widget-title">
+							<span class="icon"> <i class="icon-th"></i>
+							</span>
+							<h5>添加团队信息</h5>
+						</div>
+						<div class="widget-content nopadding">
+							<table class="table table-bordered">
+								<tbody>
+									<tr>
+										<td nowrap>团队类型：</td>
+										<td colspan="5">
+											<input type="text" name="type"/>
+										</td>
+									</tr>
+									<tr>
+										<td nowrap>团队人数：</td>
+										<td>
+											<input type="text" name="members" />
+										</td>
+										<td nowrap>接团日期：</td>
+										<td >
+											<div class="controls">
+												<input type="text" data-date="12-02-2012" data-date-format="dd-mm-yyyy" value="12-02-2012" class="datepicker" name="recvdate"/>
+											</div>
+										</td>
+										<td nowrap>送团日期：</td>
+										<td>
+											<div class="controls">
+												<input type="text" data-date="12-02-2012" data-date-format="dd-mm-yyyy" value="12-02-2012" class="datepicker" name="senddate"/>
+											</div>
+										</td>
+									</tr>
+									<!--
+									<tr>
+										<td nowrap>团队导游：</td>
+										<td colspan="5">
+											<foreach name='guides' item='user'>
+												{$user.username}<input type="checkbox" name="guides[]" value="{$user.username}" />
+											</foreach>
+										</td>
+									</tr>
+									-->
+									<tr>
+										<td nowrap>行程标题：</td>
+										<td colspan="3">
+											<input type="text" name="routetitle"/>
+										</td>
+										<td nowrap>行程天数：</td>
+										<td>
+											<input type="text" name="routedays"/>
+										</td>
+									</tr>
+									<tr>
+										<td nowrap>具体行程：</td>
+										<td colspan="5" >
+											<div class="controls" style="padding-right:10px">
+												<textarea style="width:100%;" name="route"></textarea>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td nowrap>所属办事处：</td>
+										<td >
+										<select name="offices">
+											<foreach name="offices" item="office">
+											<option />{$office.name}
+											</foreach>
+										</select>
+										<!--
+											<input type="text" name="offices"/> -->
+										</td>
+										<td nowrap>计调人员：</td>
+										<td colspan="3">
+											  {$jidiao}
+										</td>
+									</tr>
+									<tr>
+										<td nowrap>是否进购物点：</td>
+										<td >
+											是
+											<input type="radio" name="isshop" value="1" />
+											否
+											<input type="radio" name="isshop" value="0" />
+										</td>
+										<td nowrap>购物点数量：</td>
+										<td colspan="3">
+											<input type="text" name="shop"/>
+										</td>
+									</tr>
+									<tr>
+										<td nowrap>备注：</td>
+										<td colspan="5">
+											<div class="controls" style="padding-right:10px">
+												<textarea style="width:100%;" name="remark"></textarea>
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="form-actions" align="center">
+								<button type="submit" class="btn btn-primary">保存添加</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.uniform.js"></script>
+	<script src="__PUBLIC__/js/select2.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+	<script src="__PUBLIC__/js/unicorn.js"></script>
+	<script src="__PUBLIC__/js/unicorn.tables.js"></script>
+	<script src="__PUBLIC__/js/bootstrap-datepicker.js"></script>
+	<script src="__PUBLIC__/js/bootstrap-colorpicker.js"></script>
+	<script src="__PUBLIC__/js/unicorn.form_common.js"></script>
+
+</body>
+</html>

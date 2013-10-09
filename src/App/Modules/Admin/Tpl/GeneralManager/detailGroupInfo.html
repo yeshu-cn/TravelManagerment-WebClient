@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Unicorn Admin</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/bootstrap-responsive.min.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/colorpicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/datepicker.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/uniform.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/select2.css" />
+	<link rel="stylesheet" href="__PUBLIC__/css/unicorn.main.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<br>
+	<div id="breadcrumb">
+		<a href="#" title="Go to Home" class="tip-bottom">
+			<i class="icon-home"></i>
+			主页
+		</a>
+		<a href="#">总经理操作</a>
+		<a href="{:U(GROUP_NAME . '/GeneralManager/manageGroups')}"">团队信息管理</a>
+		<a href="#" class="current">排团</a>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+
+				<div class="widget-box">
+					<div class="widget-title">
+						<span class="icon"> <i class="icon-th"></i>
+						</span>
+						<h5>团队详情</h5>
+					</div>
+					<div class="widget-content nopadding">
+						<table class="table table-bordered">
+							<tbody>
+								<tr>
+									<td nowrap>团队类型：</td>
+									<td colspan="5">
+										{$groupInfo.type}
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>团队人数：</td>
+									<td>
+										{$groupInfo.members}
+									</td>
+									<td nowrap>接团日期：</td>
+									<td >
+										<div class="controls">
+											{$groupInfo.recvdate}
+										</div>
+									</td>
+									<td nowrap>送团日期：</td>
+									<td>
+										<div class="controls">
+											{$groupInfo.senddate}
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>团队导游：</td>
+									<td colspan="5">
+										{$groupInfo.guides}
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>行程标题：</td>
+									<td colspan="3">
+										{$groupInfo.routetitle}
+									</td>
+									<td nowrap>行程天数：</td>
+									<td>
+										{$groupInfo.routedays}
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>具体行程：</td>
+									<td colspan="5" >
+										{$groupInfo.route}
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>所属办事处：</td>
+									<td >
+										{$groupInfo.offices}
+									</td>
+									<td nowrap>计调人员：</td>
+									<td colspan="3">
+										{$groupInfo.jidiao}
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>是否进购物点：</td>
+										<td >
+											<if condition="$groupInfo['isshop'] eq 1">
+												是
+											<else/>
+												否
+											</if>
+										</td>
+									<td nowrap>购物点数量：</td>
+									<td colspan="3">
+										{$groupInfo.shop}
+									</td>
+								</tr>
+								<tr>
+									<td nowrap>备注：</td>
+									<td colspan="5">
+										{$groupInfo.remark}
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<div class="form-actions" align="center">
+							<button type="button" class="btn btn-primary" onclick="javascript:history.back(-1)">返回</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="__PUBLIC__/js/jquery.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.ui.custom.js"></script>
+	<script src="__PUBLIC__/js/bootstrap.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.uniform.js"></script>
+	<script src="__PUBLIC__/js/select2.min.js"></script>
+	<script src="__PUBLIC__/js/jquery.dataTables.min.js"></script>
+	<script src="__PUBLIC__/js/unicorn.js"></script>
+	<script src="__PUBLIC__/js/unicorn.tables.js"></script>
+	<script src="__PUBLIC__/js/bootstrap-datepicker.js"></script>
+	<script src="__PUBLIC__/js/bootstrap-colorpicker.js"></script>
+	<script src="__PUBLIC__/js/unicorn.form_common.js"></script>
+
+</body>
+</html>

@@ -42,6 +42,7 @@
 									<th>团队类型</th>
 									<th>行程标题</th>
 									<th>提交人</th>
+									<th>办事处</th>
 									<th>团队人数</th>
 									<th>接团日期</th>
 									<th>送团日期</th>
@@ -58,6 +59,7 @@
 										<td>{$item.type}</td>
 										<td>{$item.routetitle}</td>
 										<td>{$item.jidiao}</td>
+										<td>{$item.offices}</td>
 										<td>{$item.members}</td>
 										<td>{$item.recvdate}</td>
 										<td>{$item.senddate}</td>
@@ -75,9 +77,10 @@
 											</if>									
 										</td>
 										<td>
-											<a href="{:U(GROUP_NAME . '/JiDiao/updateGroupDetail', array('id'=>$item['id']))}">修改</a><br>
+											<a href="{:U(GROUP_NAME . '/JiDiao/detailGroupInfo', array('id'=>$item['id']))}">[查看]</a>
+											<a href="{:U(GROUP_NAME . '/JiDiao/updateGroupDetail', array('id'=>$item['id']))}">[修改]</a>
 											<if condition="$item['audittype'] eq 3">
-												<a href="{:U(GROUP_NAME . '/JiDiao/deleteGroupHandle', array('id'=>$item['id']))}">删除</a><br>
+												<a href="{:U(GROUP_NAME . '/JiDiao/deleteGroupHandle', array('id'=>$item['id']))}">[删除]</a>
 											</if>	
 										</td>
 									</tr>

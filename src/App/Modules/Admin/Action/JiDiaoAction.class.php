@@ -129,6 +129,19 @@
     			$this->error('删除失败');
     		}
 		}
+
+
+	/**
+	 * 查看团队详情
+	 * @return [type] [description]
+	 */
+	public function detailGroupInfo(){
+		$condition['id'] = I("id");
+		$this->groupInfo = M("tourgroup")->where($condition)->find();
+		$this->display();
+	}
+
+		
 	}
 
 ?>
